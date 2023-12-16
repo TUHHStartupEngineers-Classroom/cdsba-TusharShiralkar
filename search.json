@@ -67,14 +67,14 @@
     "href": "content/01_journal/01_probability.html",
     "title": "Probability Theory",
     "section": "",
-    "text": "Note\n\n\n\nYou can delete everything in here and start fresh.\nThis is a .qmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Imagine you are a project manager assessing the probability of a project being delivered on time based on the occurrence of a change in scope. The following probabilities have been determined using historical project data:\nAssume P(T) as probability of project being done on time and P(S) as probability of change of scope of project.\n\nProbability of a change in scope, \nP(S) = 0.3 \\\\\nP(\\bar S) =  0.7\n\nProbability of completing/not completing the project on time, given the change in scope, \n  P(T \\mid S) = 0.2 \\\\\n  P(\\bar T \\mid S) = 0.8 \\\\\n  P(T \\mid \\bar S) = 0.6 \\\\\n  P(\\bar T \\mid \\bar S) = 0.4 \\\\\n\n\n\n\nCompute the following probabilities and the sum of all four probabilities: \nP(T \\cap S) \\\\\nP(\\bar T \\cap S) \\\\\nP(T \\cap \\bar S) \\\\\nP(\\bar T \\cap \\bar S) \\\\\n\n\n\n\n\n\n\n# Assign probabilities of events T and S\nprob_S &lt;- 0.3\nprob_S_T &lt;- 0.2\nprob_S_Tbar &lt;- 0.8\n\nprob_Sbar &lt;- 0.7\nprob_Sbar_T &lt;- 0.6\nprob_Sbar_Tbar &lt;- 0.4\n\n# Calculate P(T ∩ S)\nprob_T_and_S &lt;- prob_S_T * prob_S\n\n# Calculate P(T ∩ S_bar)\nprob_T_and_S_bar &lt;- prob_Sbar_T * prob_Sbar\n\n# Calculate P(T_bar ∩ S)\nprob_not_T_and_S &lt;- prob_S_Tbar * prob_S\n\n# Calculate P(T_bar ∩ S_bar)\nprob_not_T_and_not_S &lt;- prob_Sbar_Tbar * prob_Sbar\n\n# Sum of all probalilities\nsum &lt;- prob_T_and_S + prob_T_and_S_bar + prob_not_T_and_S + prob_not_T_and_not_S\n\n# Print the results\nprob_T_and_S\n\n#&gt; [1] 0.06\n\nprob_T_and_S_bar\n\n#&gt; [1] 0.42\n\nprob_not_T_and_S\n\n#&gt; [1] 0.24\n\nprob_not_T_and_not_S\n\n#&gt; [1] 0.28\n\nsum\n\n#&gt; [1] 1\n\n\nThe provided R code calculates the probabilities of different events based on the given probabilities for a project being delivered on time, considering the occurrence of a change in scope. The results are printed, including the probabilities of the project being delivered on time with and without a change in scope, and the sum of all four probabilities."
   },
   {
     "objectID": "content/01_journal/01_probability.html#header-2",
     "href": "content/01_journal/01_probability.html#header-2",
     "title": "Probability Theory",
-    "section": "\n2.1 Header 2",
-    "text": "2.1 Header 2\nHeader 3\nHeader 4\nHeader 5\nHeader 6"
+    "section": "2.1 Header 2",
+    "text": "2.1 Header 2\n\nHeader 3\n\nHeader 4\n\nHeader 5\n\nHeader 6"
   },
   {
     "objectID": "content/01_journal/03_regression.html",
@@ -89,5 +89,33 @@
     "title": "Regression Discontinuity",
     "section": "",
     "text": "Note\n\n\n\nYou can delete everything in here and start fresh."
+  },
+  {
+    "objectID": "content/01_journal/01_probability.html#project---assignment-i",
+    "href": "content/01_journal/01_probability.html#project---assignment-i",
+    "title": "Probability Theory",
+    "section": "1 Project - Assignment I",
+    "text": "1 Project - Assignment I\nImagine you are a project manager assessing the probability of a project being delivered on time based on the occurrence of a change in scope. The following probabilities have been determined using historical project data:\n\nProbability of a change in scope, \\[P(S) = 0.3\\]\nIf there is a change in scope, ( P(T | S) = 0.2 )\nIf there is no change in scope, ( P(T | S) = 0.6 )\n\nDefine the following events: - ( T ): Project delivered on time - ( T_{} ): Project not delivered on time - ( S ): Change in scope - ( S_{} ): No change in scope\nCompute the following probabilities and the sum of all four probabilities:\n\n( P(T S) )\n( P(T_{} S) )\n( P(T S_{}) )\n( P(T_{} S_{}) )\n\n# Assign probabilities of events T and S\nprob_S &lt;- 0.3\nprob_S_T &lt;- 0.2\nprob_S_Tbar &lt;- 0.8\n\nprob_Sbar &lt;- 0.7\nprob_Sbar_T &lt;- 0.6\nprob_Sbar_Tbar &lt;- 0.4\n\n# Calculate P(T ∩ S)\nprob_T_and_S &lt;- prob_S_T * prob_S\n\n# Calculate P(T ∩ S_bar)\nprob_T_and_S_bar &lt;- prob_Sbar_T * prob_Sbar\n\n# Calculate P(T_bar ∩ S)\nprob_not_T_and_S &lt;- prob_S_Tbar * prob_S\n\n# Calculate P(T_bar ∩ S_bar)\nprob_not_T_and_not_S &lt;- prob_Sbar_Tbar * prob_Sbar\n\n# Sum of all probalilities\nsum &lt;- prob_T_and_S + prob_T_and_S_bar + prob_not_T_and_S + prob_not_T_and_not_S\n\n# Print the results\ncat(\"P(T ∩ S):\", prob_T_and_S, \"\\n\")\ncat(\"P(T ∩ S'):\", prob_T_and_S_bar, \"\\n\")\ncat(\"P(T' ∩ S):\", prob_not_T_and_S, \"\\n\")\ncat(\"P(T' ∩ S'): \", prob_not_T_and_not_S, \"\\n\")\ncat(\"Sum :\", sum, \"\\n\")\nThe provided R code calculates the probabilities of different events based on the given probabilities for a project being delivered on time, considering the occurrence of a change in scope. The results are printed, including the probabilities of the project being delivered on time with and without a change in scope, and the sum of all four probabilities."
+  },
+  {
+    "objectID": "content/01_journal/01_probability.html#probability-theory---assignment-i",
+    "href": "content/01_journal/01_probability.html#probability-theory---assignment-i",
+    "title": "Probability Theory",
+    "section": "",
+    "text": "Imagine you are a project manager assessing the probability of a project being delivered on time based on the occurrence of a change in scope. The following probabilities have been determined using historical project data:\nAssume P(T) as probability of project being done on time and P(S) as probability of change of scope of project.\n\nProbability of a change in scope, \\[\nP(S) = 0.3 \\\\\nP(\\bar S) =  0.7\n\\]\nProbability of completing/not completing the project on time, given the change in scope, \\[\n  P(T \\mid S) = 0.2 \\\\\n  P(\\bar T \\mid S) = 0.8 \\\\\n  P(T \\mid \\bar S) = 0.6 \\\\\n  P(\\bar T \\mid \\bar S) = 0.4 \\\\\n\\]"
+  },
+  {
+    "objectID": "content/01_journal/01_probability.html#objective",
+    "href": "content/01_journal/01_probability.html#objective",
+    "title": "Probability Theory",
+    "section": "",
+    "text": "Compute the following probabilities and the sum of all four probabilities: \nP(T \\cap S) \\\\\nP(\\bar T \\cap S) \\\\\nP(T \\cap \\bar S) \\\\\nP(\\bar T \\cap \\bar S) \\\\"
+  },
+  {
+    "objectID": "content/01_journal/01_probability.html#solution",
+    "href": "content/01_journal/01_probability.html#solution",
+    "title": "Probability Theory",
+    "section": "",
+    "text": "# Assign probabilities of events T and S\nprob_S &lt;- 0.3\nprob_S_T &lt;- 0.2\nprob_S_Tbar &lt;- 0.8\n\nprob_Sbar &lt;- 0.7\nprob_Sbar_T &lt;- 0.6\nprob_Sbar_Tbar &lt;- 0.4\n\n# Calculate P(T ∩ S)\nprob_T_and_S &lt;- prob_S_T * prob_S\n\n# Calculate P(T ∩ S_bar)\nprob_T_and_S_bar &lt;- prob_Sbar_T * prob_Sbar\n\n# Calculate P(T_bar ∩ S)\nprob_not_T_and_S &lt;- prob_S_Tbar * prob_S\n\n# Calculate P(T_bar ∩ S_bar)\nprob_not_T_and_not_S &lt;- prob_Sbar_Tbar * prob_Sbar\n\n# Sum of all probalilities\nsum &lt;- prob_T_and_S + prob_T_and_S_bar + prob_not_T_and_S + prob_not_T_and_not_S\n\n# Print the results\nprob_T_and_S\n\n#&gt; [1] 0.06\n\nprob_T_and_S_bar\n\n#&gt; [1] 0.42\n\nprob_not_T_and_S\n\n#&gt; [1] 0.24\n\nprob_not_T_and_not_S\n\n#&gt; [1] 0.28\n\nsum\n\n#&gt; [1] 1\n\n\nThe provided R code calculates the probabilities of different events based on the given probabilities for a project being delivered on time, considering the occurrence of a change in scope. The results are printed, including the probabilities of the project being delivered on time with and without a change in scope, and the sum of all four probabilities."
   }
 ]
