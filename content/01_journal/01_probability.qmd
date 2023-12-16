@@ -1,97 +1,90 @@
 ---
 title: "Probability Theory"
+format: 
+  html: 
+    html-math-method: katex
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+# Probability Theory - Assignment I
 
-This is a `.qmd` file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a \# in front of your text, it will create a top level-header.
+Imagine you are a project manager assessing the probability of a project being delivered on time based on the occurrence of a change in scope. The following probabilities have been determined using historical project data:
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Assume P(T) as probability of project being done on time and P(S) as probability of change of scope of project.
 
-# Text Formatting
+-   Probability of a change in scope, $$
+    P(S) = 0.3 \\
+    P(\bar S) =  0.7
+    $$
+-   Probability of completing/not completing the project on time, given the change in scope, $$
+      P(T \mid S) = 0.2 \\
+      P(\bar T \mid S) = 0.8 \\
+      P(T \mid \bar S) = 0.6 \\
+      P(\bar T \mid \bar S) = 0.4 \\
+    $$
 
-*italics* and **bold**
+## Objective
 
-superscript^2^ / subscript~2~
+Compute the following probabilities and the sum of all four probabilities: $$
+P(T \cap S) \\
+P(\bar T \cap S) \\
+P(T \cap \bar S) \\
+P(\bar T \cap \bar S) \\
+$$
 
-~~strikethrough~~
+## Solution
 
-`verbatim code`
-
-> Blockquote
-
-# Headings
-
-## Header 2
-### Header 3
-#### Header 4
-##### Header 5
-###### Header 6
-
-# Links & Images
-
-<https://quarto.org>
-
-[Quarto](https://quarto.org)
-
-![Caption](../../assets/img/elephant.png)
-
-[![Caption](../../assets/img/elephant.png)](https://quarto.org)
-
-[![Caption](../../assets/img/elephant.png)](https://quarto.org "An elephant")
-
-
-# Lists
-
-* unordered list
-    + sub-item 1
-    + sub-item 2
-        - sub-sub-item 1
-        
-*   item 2
-
-    Continued (indent 4 spaces)
-    
-    
-1. ordered list
-2. item 2
-    i) sub-item 1
-         A.  sub-sub-item 1
-         
-(@)  A list whose numbering
-
-continues after
-
-(@)  an interruption
-
-# Tables
-
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|   12  |  12  |    12   |    12  |
-|  123  |  123 |   123   |   123  |
-|    1  |    1 |     1   |     1  |
-
-# Source Code
-
-Use ``` to delimit blocks of source code:
-
-```
-code
-```
-
-Add a language to syntax highlight code blocks:
+### Code
 
 ```{r}
-1 + 1
+
+# Assign probabilities of events T and S
+prob_S <- 0.3
+prob_S_T <- 0.2
+prob_S_Tbar <- 0.8
+
+prob_Sbar <- 0.7
+prob_Sbar_T <- 0.6
+prob_Sbar_Tbar <- 0.4
+
+# Calculate P(T ∩ S)
+prob_T_and_S <- prob_S_T * prob_S
+
+# Calculate P(T ∩ S_bar)
+prob_T_and_S_bar <- prob_Sbar_T * prob_Sbar
+
+# Calculate P(T_bar ∩ S)
+prob_not_T_and_S <- prob_S_Tbar * prob_S
+
+# Calculate P(T_bar ∩ S_bar)
+prob_not_T_and_not_S <- prob_Sbar_Tbar * prob_Sbar
+
+# Sum of all probalilities
+sum <- prob_T_and_S + prob_T_and_S_bar + prob_not_T_and_S + prob_not_T_and_not_S
+
+# Print the results
+prob_T_and_S
+prob_T_and_S_bar
+prob_not_T_and_S
+prob_not_T_and_not_S
+sum
 ```
 
-```{r}
-cars
-```
+The provided R code calculates the probabilities of different events based on the given probabilities for a project being delivered on time, considering the occurrence of a change in scope. The results are printed, including the probabilities of the project being delivered on time with and without a change in scope, and the sum of all four probabilities.
 
-```{r}
-plot(cars)
-```
+# Probability Theory - Assignment II
+
+![](/assets/img/chap1-assign2_01.png){#assign02_vennDiag fig-align="center" width="80%"}
+
+Using the above Venn Diagram, we are to answer the following questions:
+
+-   What is the percentage of customers using all three devices?
+
+    <u>**Solution**</u>: This is the region where all three circles in the diagram intersect - <u>*0.5%*</u>
+
+-   What is the percentage of customers using at least two devices?
+
+    <u>**Solution**</u>: This will be the sum of percentages in the region of intersection of two or more circles - <u>*19.9%*</u>
+
+-   What is the percentage of customers using only one device?
+
+    <u>**Solution**</u>: This will be the sum of percentages of which are exclusive of each other - <u>*80.01%*</u>
